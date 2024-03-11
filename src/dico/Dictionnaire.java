@@ -40,15 +40,15 @@ public class Dictionnaire {
         }
     }
 
-    public String getDefinition(String word) {
+    public String getDef(String word) {
         return lesmots.get(word);
     }
 
-    public String[] getAllWords() {
+    public String[] getTousMots() {
         return tousLesMots.toArray(new String[0]);
     }
 
-    public String[] getWordAndDefinition(String word) {
+    public String[] getMotetDef(String word) {
         String[] result = new String[2];
         result[0] = word;
         result[1] = lesmots.get(word);
@@ -58,14 +58,14 @@ public class Dictionnaire {
     public static void main(String[] args) {
         Dictionnaire dictionary = new Dictionnaire("mots.txt");
         String word = "agenda";
-        String definition = dictionary.getDefinition(word);
+        String definition = dictionary.getDef(word);
         if (definition != null) {
             System.out.println("Définition de \"" + word + "\": " + definition);
         } else {
             System.out.println("Le mot \"" + word + "\" n'a pas été trouvé dans le dictionnaire.");
         }
 
-        String[] allWords = dictionary.getAllWords();
+        String[] allWords = dictionary.getTousMots();
         for (String w : allWords) {
             System.out.println(w);
         }
