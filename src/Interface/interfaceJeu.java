@@ -130,7 +130,7 @@ public class interfaceJeu implements affichage {
             }
         });
 
-        // Initialisation du timer en mode difficile
+     // Initialisation du timer en mode difficile
         if (modeDifficile) {
             timer = new Timer(1000, new ActionListener() {
                 int remainingTime = 20;
@@ -139,16 +139,21 @@ public class interfaceJeu implements affichage {
                 public void actionPerformed(ActionEvent e) {
                     remainingTime--;
                     if (remainingTime == 0) {
-                        vie--; // Retrait d'une vie lorsque le temps est écoulé
-                        vieLabel.setText("Vies restantes : " + vie);
-                        timer.stop();
-                    } else {
-                        timerLabel.setText("Temps restant: " + remainingTime + "s");
+                        if (!partieTerminee) {
+                            vie--; // Retrait d'une vie lorsque le temps est écoulé
+                            vieLabel.setText("Vies restantes : " + vie);
+                            if (vie > 0) {
+                                remainingTime = 20; // Redémarrage du timer si des vies restent
+                            }
+                            
+                        }
                     }
+                    timerLabel.setText("Temps restant: " + remainingTime + "s");
                 }
             });
             timer.start();
         }
+
     }
 
     @Override
