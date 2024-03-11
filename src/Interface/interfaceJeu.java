@@ -27,6 +27,10 @@ public class interfaceJeu implements affichage {
     private JLabel vieLabel;
     private JTextField caractereField;
     private Dictionnaire dico;
+    private JButton definitionButton;
+    private JButton devinerButton;
+    private JLabel timerLabel; // Ajout du label pour afficher le timer
+    private Timer timer; // Ajout du timer
 
     /**
      * Constructeur de l'interface du jeu du pendu.
@@ -69,27 +73,35 @@ public class interfaceJeu implements affichage {
         caractereField = new JTextField(1);
         inputPanel.add(caractereField);
 
-        JButton devinerButton = new JButton("Deviner");
+        devinerButton = new JButton("Deviner");
         inputPanel.add(devinerButton);
 
         interfacePrincipal.add(inputPanel, gbc);
 
-        if (!modeDifficile) {
-            gbc.gridy = 3;
-            JButton definitionButton = new JButton("Définition");
-            interfacePrincipal.add(definitionButton, gbc);
+        // Toujours initialiser le bouton "Définition"
+        gbc.gridy = 3;
+        definitionButton = new JButton("Définition");
+        interfacePrincipal.add(definitionButton, gbc);
+
+        // Rendre le bouton "Définition" visible ou non en fonction du mode de jeu
+        definitionButton.setVisible(!modeDifficile);
+
+        // Ajout du timer en mode difficile
+        if (modeDifficile) {
+            gbc.gridx = 1;
+            timerLabel = new JLabel("Temps restant: 20s");
+            interfacePrincipal.add(timerLabel, gbc);
         }
 
         theCadre.getContentPane().add(interfacePrincipal);
     }
-
 
     @Override
     public void setupActions() {
         Component[] components = ((JPanel) interfacePrincipal.getComponent(2)).getComponents();
         for (Component component : components) {
             if (component instanceof JButton) {
-                JButton devinerButton = (JButton) component;
+                devinerButton = (JButton) component;
                 devinerButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -109,6 +121,34 @@ public class interfaceJeu implements affichage {
                 }
             }
         });
+        definitionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!partieTerminee) {
+                    afficherDefinition();
+                }
+            }
+        });
+
+        // Initialisation du timer en mode difficile
+        if (modeDifficile) {
+            timer = new Timer(1000, new ActionListener() {
+                int remainingTime = 20;
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    remainingTime--;
+                    if (remainingTime == 0) {
+                        vie--; // Retrait d'une vie lorsque le temps est écoulé
+                        vieLabel.setText("Vies restantes : " + vie);
+                        timer.stop();
+                    } else {
+                        timerLabel.setText("Temps restant: " + remainingTime + "s");
+                    }
+                }
+            });
+            timer.start();
+        }
     }
 
     @Override
@@ -120,6 +160,15 @@ public class interfaceJeu implements affichage {
     @Override
     public void closeUI() {
         theCadre.dispose();
+    }
+
+    public void afficherDefinition() {
+        String definition = dico.getDef(motCache);
+        if (definition != null && !definition.isEmpty()) {
+            JOptionPane.showMessageDialog(theCadre, "Définition du mot : " + definition);
+        } else {
+            JOptionPane.showMessageDialog(theCadre, "Aucune définition disponible pour ce mot.");
+        }
     }
 
     private void initialiserPartie() {
@@ -168,7 +217,6 @@ public class interfaceJeu implements affichage {
         vieLabel.setText("Vies restantes : " + vie);
     }
 
-
     private void mettreAJourMotAffiche() {
         StringBuilder affichage = new StringBuilder();
         for (int i = 0; i < motCache.length(); i++) {
@@ -197,9 +245,9 @@ public class interfaceJeu implements affichage {
      */
     public static void main(String[] args) {
         // Mode facile
-        new interfaceJeu("Facile");
-        
+        //new interfaceJeu("Facile");
+
         // Mode difficile
-        // new interfaceJeu("Difficile");
+        new interfaceJeu("Difficile");
     }
 }
