@@ -1,5 +1,4 @@
 package Interface;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -43,13 +42,30 @@ public class interfaceBegin implements affichage {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JButton easyButton = new JButton("Facile");
-                JButton hardButton = new JButton("Difficile");
+                JButton ezMode = new JButton("Facile");
+                JButton darkSoulMode = new JButton("Difficile");
                 JPanel buttonPanel = new JPanel(new FlowLayout());
-                buttonPanel.add(easyButton);
-                buttonPanel.add(hardButton);
+                buttonPanel.add(ezMode);
+                buttonPanel.add(darkSoulMode);
                 myMain.remove(playButton);
                 myMain.add(buttonPanel, 1);
+                
+                // Action listener  bouton "Facile"
+                ezMode.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                    }
+                });
+                
+                // Action listener pour "Difficile"
+                darkSoulMode.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                    }
+                });
+                
                 inter.revalidate();
             }
         });
