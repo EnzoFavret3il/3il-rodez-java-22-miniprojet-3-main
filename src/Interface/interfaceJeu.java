@@ -19,6 +19,7 @@ public class interfaceJeu implements affichage {
     private StringBuilder motAffiche;
     private ArrayList<Character> lettresUtilisees;
     private boolean partieTerminee;
+    private boolean modeDifficile;
 
     private JFrame theCadre;
     private JPanel interfacePrincipal;
@@ -30,10 +31,11 @@ public class interfaceJeu implements affichage {
     /**
      * Constructeur de l'interface du jeu du pendu.
      *
-     * @param difficulté La difficulté du jeu.
+     * @param difficulté La difficulté du jeu ("Facile" ou "Difficile").
      */
     public interfaceJeu(String difficulté) {
         dico = new Dictionnaire("mots.txt");
+        modeDifficile = difficulté.equalsIgnoreCase("Difficile");
 
         initUI();
         setupActions();
@@ -71,6 +73,12 @@ public class interfaceJeu implements affichage {
         inputPanel.add(devinerButton);
 
         interfacePrincipal.add(inputPanel, gbc);
+
+        if (!modeDifficile) {
+            gbc.gridy = 3;
+            JButton definitionButton = new JButton("Définition");
+            interfacePrincipal.add(definitionButton, gbc);
+        }
 
         theCadre.getContentPane().add(interfacePrincipal);
     }
@@ -188,6 +196,10 @@ public class interfaceJeu implements affichage {
      * @param args Les arguments de ligne de commande (non utilisés).
      */
     public static void main(String[] args) {
+        // Mode facile
         new interfaceJeu("Facile");
+        
+        // Mode difficile
+        // new interfaceJeu("Difficile");
     }
 }
