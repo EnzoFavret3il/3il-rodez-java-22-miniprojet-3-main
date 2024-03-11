@@ -16,9 +16,9 @@ public class interfaceBegin implements affichage {
 
     @Override
     public void initUI() {
-        inter = new JFrame("Jeu");
+        inter = new JFrame("Le Pendu");
         inter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        inter.setSize(300, 200);
+        inter.setSize(400, 200);
         inter.setLocationRelativeTo(null);
 
         myMain = new JPanel();
@@ -42,6 +42,7 @@ public class interfaceBegin implements affichage {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	inter.setTitle("Le Pendu : Choix Difficulté");
                 JButton ezMode = new JButton("Facile");
                 JButton darkSoulMode = new JButton("Difficile");
                 JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -54,7 +55,7 @@ public class interfaceBegin implements affichage {
                 ezMode.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        
+                        interfaceJeu interJeu= new interfaceJeu("Facile");
                     }
                 });
                 
@@ -62,7 +63,7 @@ public class interfaceBegin implements affichage {
                 darkSoulMode.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        
+                    	interfaceJeu interJeu= new interfaceJeu("Difficile");
                     }
                 });
                 
