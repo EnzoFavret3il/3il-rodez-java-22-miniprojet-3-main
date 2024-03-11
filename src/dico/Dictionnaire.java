@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Dictionnaire {
     private Map<String, String> lesmots;
-
+    private List<String> tousLesMots;
     public Dictionnaire(String filename) {
         lesmots = new HashMap<>();
         loadFromFile(filename);
@@ -37,7 +38,10 @@ public class Dictionnaire {
     public String getDefinition(String word) {
         return lesmots.get(word);
     }
-    
+ // Méthode pour récupérer tous les mots du dictionnaire
+    public String[] getAllWords() {
+        return tousLesMots.toArray(new String[0]);
+    }
     public String[] getWordAndDefinition(String word) {
         String[] result = new String[2];
         result[0] = word;
