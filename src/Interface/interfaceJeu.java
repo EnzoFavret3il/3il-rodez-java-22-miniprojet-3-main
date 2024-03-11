@@ -27,7 +27,7 @@ public class interfaceJeu implements affichage {
     public void initUI() {
         theCadre = new JFrame("Jeu de mots");
         theCadre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        theCadre.setSize(400, 200);
+        theCadre.setSize(1200, 800);
         theCadre.setLocationRelativeTo(null);
 
         interfacePrincipal = new JPanel();
@@ -48,14 +48,20 @@ public class interfaceJeu implements affichage {
 
     @Override
     public void setupActions() {
-        JButton newWordButton = (JButton) interfacePrincipal.getComponent(2);
-        newWordButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String randomWord = getRandomWord();
-                motmot.setText(randomWord);
+        Component[] components = interfacePrincipal.getComponents();
+        for (Component component : components) {
+            if (component instanceof JButton) {
+                JButton newWordButton = (JButton) component;
+                newWordButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String randomWord = getRandomWord();
+                        motmot.setText(randomWord);
+                    }
+                });
+                break; 
             }
-        });
+        }
     }
 
     @Override

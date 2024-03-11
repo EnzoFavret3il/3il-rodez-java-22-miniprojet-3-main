@@ -1,17 +1,21 @@
 package dico;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Dictionnaire {
     private Map<String, String> lesmots;
     private List<String> tousLesMots;
+
     public Dictionnaire(String filename) {
         lesmots = new HashMap<>();
+        tousLesMots = new ArrayList<>(); // Initialisation de la liste
         loadFromFile(filename);
     }
 
@@ -27,6 +31,7 @@ public class Dictionnaire {
                     String word = parts[0];
                     String definition = parts[1];
                     lesmots.put(word, definition);
+                    tousLesMots.add(word); // Ajouter le mot à la liste
                 }
             }
             bufferedReader.close();
@@ -38,10 +43,11 @@ public class Dictionnaire {
     public String getDefinition(String word) {
         return lesmots.get(word);
     }
- // Méthode pour récupérer tous les mots du dictionnaire
+
     public String[] getAllWords() {
         return tousLesMots.toArray(new String[0]);
     }
+
     public String[] getWordAndDefinition(String word) {
         String[] result = new String[2];
         result[0] = word;
@@ -58,9 +64,10 @@ public class Dictionnaire {
         } else {
             System.out.println("Le mot \"" + word + "\" n'a pas été trouvé dans le dictionnaire.");
         }
-        
-        // Exemple d'utilisation du getter pour obtenir le mot et la définition ensemble
-        String[] wordAndDefinition = dictionary.getWordAndDefinition(word);
-        System.out.println("Mot: " + wordAndDefinition[0] + ", Définition: " + wordAndDefinition[1]);
+
+        String[] allWords = dictionary.getAllWords();
+        for (String w : allWords) {
+            System.out.println(w);
+        }
     }
 }
