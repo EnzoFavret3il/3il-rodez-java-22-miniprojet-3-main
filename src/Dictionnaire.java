@@ -1,5 +1,3 @@
-package dico;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -38,6 +36,13 @@ public class Dictionnaire {
     public String getDefinition(String word) {
         return lesmots.get(word);
     }
+    
+    public String[] getWordAndDefinition(String word) {
+        String[] result = new String[2];
+        result[0] = word;
+        result[1] = lesmots.get(word);
+        return result;
+    }
 
     public static void main(String[] args) {
         Dictionnaire dictionary = new Dictionnaire("mots.txt");
@@ -48,5 +53,9 @@ public class Dictionnaire {
         } else {
             System.out.println("Le mot \"" + word + "\" n'a pas été trouvé dans le dictionnaire.");
         }
+        
+        // Exemple d'utilisation du getter pour obtenir le mot et la définition ensemble
+        String[] wordAndDefinition = dictionary.getWordAndDefinition(word);
+        System.out.println("Mot: " + wordAndDefinition[0] + ", Définition: " + wordAndDefinition[1]);
     }
 }
