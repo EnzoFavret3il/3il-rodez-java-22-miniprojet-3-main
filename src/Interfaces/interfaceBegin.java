@@ -8,6 +8,7 @@ public class interfaceBegin implements affichage {
     private JFrame inter;
     private JPanel myMain; //my man ?.??
 
+    /**Interface de début*/
     public interfaceBegin() {
         initUI();
         setupActions();
@@ -40,6 +41,7 @@ public class interfaceBegin implements affichage {
     public void setupActions() {
         JButton playButton = (JButton) myMain.getComponent(1);
         playButton.addActionListener(new ActionListener() {
+        	/**Méthodes permmetant de sélectionner le choix de la difficulté*/
             @Override
             public void actionPerformed(ActionEvent e) {
             	inter.setTitle("Le Pendu : Choix Difficulté");

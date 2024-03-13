@@ -18,4 +18,25 @@ public class Sound {
             throw new IllegalArgumentException("Type de son inconnu : " + type);
         }
     }
+
+    public void jouer() {
+        try {
+            File fichierAudio = new File(cheminFichierAudio);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(fichierAudio);
+
+            Clip lecteurAudio = AudioSystem.getClip();
+            lecteurAudio.open(audioInputStream);
+            lecteurAudio.start();
+
+            // Attendre que la lecture soit terminée avant de fermer le lecteur
+            lecteurAudio.addLineListener(event -> {
+                if (event.getType() == LineEvent.Type.STOP) {
+                    lecteurAudio.close();
+                }
+            });
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

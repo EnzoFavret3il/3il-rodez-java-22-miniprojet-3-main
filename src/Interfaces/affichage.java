@@ -2,6 +2,8 @@ package Interfaces;
 import javax.swing.*;
 
 public interface affichage {
+	/**Interface de base*/
+	
 	// Initialisation Graphique
     void initUI();
 

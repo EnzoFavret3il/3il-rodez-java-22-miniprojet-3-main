@@ -182,7 +182,7 @@ public class interfaceJeu implements affichage {
     public void closeUI() {
         theCadre.dispose();
     }
-
+    /**Méthode permettant d'afficher la définition d'un mot en mode facile*/
     public void afficherDefinition() {
         String definition = dico.getDef(motCache);
         if (definition != null && !definition.isEmpty()) {
@@ -191,7 +191,7 @@ public class interfaceJeu implements affichage {
             JOptionPane.showMessageDialog(theCadre, "Aucune définition disponible pour ce mot.");
         }
     }
-
+    /**Méthode permettant de commencer la partie*/
     private void initialiserPartie() {
         lettresUtilisees = new ArrayList<>();
         partieTerminee = false;
@@ -247,6 +247,7 @@ public class interfaceJeu implements affichage {
         vieLabel.setText("Vies restantes : " + vie);
     }
 
+    /**Méthode permettant de mettre à jour le mot affiché en fonction des entrées bonnes de l'utilisateur*/
     private void mettreAJourMotAffiche() {
         StringBuilder affichage = new StringBuilder();
         for (int i = 0; i < motCache.length(); i++) {
@@ -260,13 +261,15 @@ public class interfaceJeu implements affichage {
         motAffiche = affichage;
         motLabel.setText(motAffiche.toString());
     }
-
+    
+    /**Récupération d'un mot aléatoire dans le dico*/
     private String getRandomWord() {
         String[] allWords = dico.getTousMots();
         Random random = new Random();
         int randomIndex = random.nextInt(allWords.length);
         return allWords[randomIndex];
     }
+    /**Méthode permettant d'afficher les entrés de l'utilisateur*/
     public void afficherLettresProposees() {
         StringBuilder lettresProposees = new StringBuilder();
         for (char lettre : lettresUtilisees) {
@@ -274,8 +277,8 @@ public class interfaceJeu implements affichage {
         }
         JOptionPane.showMessageDialog(theCadre, "Lettres déjà proposées : " + lettresProposees.toString());
     }
+ /** Défini l'image ASCII du pendu en fonction du nombre d'erreurs*/
     private void mettreAJourPendu() {
-        // Définir l'image ou la représentation ASCII du pendu en fonction du nombre d'erreurs
         String[] penduImages = {
         		"   +---+\n" +
         			    "   |   |\n" +
