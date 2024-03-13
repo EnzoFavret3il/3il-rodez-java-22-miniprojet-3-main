@@ -1,7 +1,22 @@
 # PARTIE TECHNIQUE
 
 SPOILER ALERT: 
-Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC. Mais j'ai éssayé ... 
+Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC. Mais j'ai éssayé ...
+
+Au niveau des demandes de bases :
+- Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.
+- Affichage graphique de l'interface du jeu à l'aide de Swing.
+- Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.
+- Affichage graphique des lettres déjà proposées par le joueur.
+- Affichage (ou non) de la définition (niveau de difficulté).
+- Utilisation (ou non) d'un timer (niveau de difficulté).
+- Gestion des entrées utilisateur pour proposer des lettres.
+- Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).
+- Gestion du décompte des tentatives restantes.
+- Gestion de la victoire ou de la défaite du joueur.
+- Possibilité de rejouer une partie après la fin d'une partie.
+
+D'après ma compréhension de ces demandes, elles sont toutes terminées et fonctionnelles. 
 
 ## Les Interfaces graphiques
 
@@ -42,6 +57,9 @@ Lorsque le jeu est lancé en mode facile, l'utilisateur a accès à un bouton pe
 ## Difficile:
 
 Lorsque le jeu est lancé en mode difficile, l'utilisateur n'a plus de définition du mot et a un timer de 20 secondes pour répondre. Celui-ci ne repart pas à zéro lorsqu'une réponse est donnée pour ajouter plus de difficulté au jeu. Si le timer est atteint 0, une vie est retiré à l'utilisateur et repart à 20 secondes.
+
+Le jeu joue des sons lors des erreurs et bonnes réponses de l'utilisateur au cours de la partie est affiche l'evolution d'un pendu au long de la partie sur 7 étapes, donc 7 vies pour l'utilisateur. 
+En fin de partie l'utilisateur est invité à relancer une partie ou de quitter l'application qu'importe le résultat de la partie précédente. 
 
 # RETOUR SUR LE PROJET
 
