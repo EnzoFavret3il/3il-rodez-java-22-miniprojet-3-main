@@ -3,6 +3,7 @@ package Vue;
 import javax.swing.*;
 
 import modele.Dictionnaire;
+import modele.Sound;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -220,9 +221,13 @@ public class interfaceJeu implements affichage {
         lettresUtilisees.add(lettre);
         if (motCache.indexOf(lettre) != -1) {
             mettreAJourMotAffiche();
+            Sound lecteurAudio = new Sound("good");
+            lecteurAudio.jouer();
         } else {
             vie--;
             mettreAJourPendu(); // Mise à jour du pendu après une erreur
+            Sound lecteurAudio = new Sound("bad");
+            lecteurAudio.jouer();
             if (vie <= 0) {
                 JOptionPane.showMessageDialog(theCadre, "Vous avez perdu! Le mot était : " + motCache);
                 partieTerminee = true;
