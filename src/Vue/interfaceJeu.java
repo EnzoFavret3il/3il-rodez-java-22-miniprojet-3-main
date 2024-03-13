@@ -1,9 +1,7 @@
 package Vue;
 
 import javax.swing.*;
-
 import modele.Dictionnaire;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,9 +35,10 @@ public class interfaceJeu implements affichage {
      * Constructeur de l'interface du jeu du pendu.
      *
      * @param difficulté La difficulté du jeu ("Facile" ou "Difficile").
+     * @param dictionnaire Le dictionnaire de mots à utiliser.
      */
-    public interfaceJeu(String difficulté) {
-        dico = new Dictionnaire("mots.txt");
+    public interfaceJeu(String difficulté, Dictionnaire dictionnaire) {
+        dico = dictionnaire;
         modeDifficile = difficulté.equalsIgnoreCase("Difficile");
 
         initUI();
@@ -131,7 +130,7 @@ public class interfaceJeu implements affichage {
             }
         });
 
-     // Initialisation du timer en mode difficile
+        // Initialisation du timer en mode difficile
         if (modeDifficile) {
             timer = new Timer(1000, new ActionListener() {
                 int remainingTime = 20;
@@ -146,7 +145,6 @@ public class interfaceJeu implements affichage {
                             if (vie > 0) {
                                 remainingTime = 20; // Redémarrage du timer si des vies restent
                             }
-                            
                         }
                     }
                     timerLabel.setText("Temps restant: " + remainingTime + "s");
@@ -190,8 +188,8 @@ public class interfaceJeu implements affichage {
     }
 
     private void devinerLettre() {
-        String lettreText = caractereField.getText().toLowerCase(); // Convertir la lettre en minuscule pour simplifier la vérification
-        if (lettreText.length() != 1 || !lettreText.matches("[a-zàéçè-]")) { // Vérifier si la lettre est une lettre de l'alphabet ou un des caractères spéciaux
+        String lettreText = caractereField.getText().toLowerCase();
+        if (lettreText.length() != 1 || !lettreText.matches("[a-zàéçè-]")) {
             JOptionPane.showMessageDialog(theCadre, "Veuillez saisir une lettre de l'alphabet ou un des caractères spéciaux autorisés (à, é, ç, è, -).");
             return;
         }
@@ -249,11 +247,5 @@ public class interfaceJeu implements affichage {
      *
      * @param args Les arguments de ligne de commande (non utilisés).
      */
-    public static void main(String[] args) {
-        // Mode facile
-        //new interfaceJeu("Facile");
 
-        // Mode difficile
-        new interfaceJeu("Difficile");
-    }
 }
