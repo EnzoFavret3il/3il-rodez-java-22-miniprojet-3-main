@@ -11,9 +11,9 @@ public class Sound {
      * @param type => type de son que l'on souhaite données*/
     public Sound(String type) {
         if (type.equals("good")) {
-            this.cheminFichierAudio = "src/Sounds/xp.wav"; 
+            this.setCheminFichierAudio("src/Sounds/xp.wav"); 
         } else if (type.equals("bad")) {
-            this.cheminFichierAudio = "src/Sounds/oof.wav";
+            this.setCheminFichierAudio("src/Sounds/oof.wav");
         } else {
             throw new IllegalArgumentException("Type de son inconnu : " + type);
         }
@@ -21,7 +21,7 @@ public class Sound {
 
     public void jouer() {
         try {
-            File fichierAudio = new File(cheminFichierAudio);
+            File fichierAudio = new File(getCheminFichierAudio());
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(fichierAudio);
 
             Clip lecteurAudio = AudioSystem.getClip();
@@ -38,5 +38,13 @@ public class Sound {
             e.printStackTrace();
         }
     }
+
+	public String getCheminFichierAudio() {
+		return cheminFichierAudio;
+	}
+
+	public void setCheminFichierAudio(String cheminFichierAudio) {
+		this.cheminFichierAudio = cheminFichierAudio;
+	}
 
 }
