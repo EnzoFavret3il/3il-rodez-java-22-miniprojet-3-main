@@ -15,12 +15,12 @@ public class DictionnaireTest {
     public void testGetDef() {
         Dictionnaire dictionary = new Dictionnaire("mots.txt");
 
-        // Test when the word exists in the dictionary
+        // Test quand mot existe dans dico
         String definition = dictionary.getDef("agenda");
         assertNotNull(definition);
         assertEquals("A book or electronic application used to store data", definition);
 
-        // Test when the word doesn't exist in the dictionary
+        // Test quand mot n'existe pas dans dico
         String nonExistentDefinition = dictionary.getDef("nonexistent");
         assertNull(nonExistentDefinition);
     }
@@ -29,10 +29,10 @@ public class DictionnaireTest {
     public void testGetTousMots() {
         Dictionnaire dictionary = new Dictionnaire("mots.txt");
 
-        // Test the correctness of the list of all words
+        // Test l'intégrité
         String[] allWords = dictionary.getTousMots();
         assertNotNull(allWords);
-        assertEquals(5, allWords.length); // Assuming mots.txt contains 5 words
+        assertEquals(5, allWords.length); 
         assertArrayEquals(new String[]{"agenda", "book", "computer", "phone", "tablet"}, allWords);
     }
 
@@ -40,13 +40,13 @@ public class DictionnaireTest {
     public void testGetMotetDef() {
         Dictionnaire dictionary = new Dictionnaire("mots.txt");
 
-        // Test when the word exists in the dictionary
+        // Test si mot existe dans dico avec def
         String[] motetDef = dictionary.getMotetDef("agenda");
         assertNotNull(motetDef);
         assertEquals("agenda", motetDef[0]);
         assertEquals("A book or electronic application used to store data", motetDef[1]);
 
-        // Test when the word doesn't exist in the dictionary
+        // Test si mot existe pas dans dico avec def
         String[] nonExistentMotetDef = dictionary.getMotetDef("nonexistent");
         assertNull(nonExistentMotetDef);
     }
