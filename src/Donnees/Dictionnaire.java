@@ -19,6 +19,8 @@ public class Dictionnaire {
         loadFromFile(filename);
     }
 
+    /**Méthode permettant de lire le fichier mot et de récupérer les mots et leurs définitions
+     * @param filename => lien vers le fichier à charger*/
     private void loadFromFile(String filename) {
         try {
             File file = new File(filename);
@@ -39,35 +41,20 @@ public class Dictionnaire {
             e.printStackTrace();
         }
     }
-
+    /**Méthode permettant de récuperer la définition du mot
+     * @param word => le mot pour lequel on récupére la definition*/
     public String getDef(String word) {
         return lesmots.get(word);
     }
-
+    /**Méthode de récupération de tous les mots*/
     public String[] getTousMots() {
         return tousLesMots.toArray(new String[0]);
     }
-
+    /**Méthode permettant de récupérer les mots composant defifnions d'un mot @param word*/
     public String[] getMotetDef(String word) {
         String[] result = new String[2];
         result[0] = word;
         result[1] = lesmots.get(word);
         return result;
-    }
-
-    public static void main(String[] args) {
-        Dictionnaire dictionary = new Dictionnaire("mots.txt");
-        String word = "agenda";
-        String definition = dictionary.getDef(word);
-        if (definition != null) {
-            System.out.println("Définition de \"" + word + "\": " + definition);
-        } else {
-            System.out.println("Le mot \"" + word + "\" n'a pas été trouvé dans le dictionnaire.");
-        }
-
-        String[] allWords = dictionary.getTousMots();
-        for (String w : allWords) {
-            System.out.println(w);
-        }
     }
 }
