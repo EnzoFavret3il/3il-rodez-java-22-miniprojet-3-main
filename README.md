@@ -1,7 +1,6 @@
 
 RAF:
-Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.
-Gestion de la victoire ou de la défaite du joueur.
+
 Possibilité de rejouer une partie après la fin d'une partie.
 
 
@@ -14,4 +13,5 @@ Utilisation (ou non) d'un timer (niveau de difficulté).
 Gestion des entrées utilisateur pour proposer des lettres.
 Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).
 Gestion du décompte des tentatives restantes.
-
+Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.
+Gestion de la victoire ou de la défaite du joueur.
