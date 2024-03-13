@@ -13,4 +13,6 @@ public interface affichage {
 
     // fermer interface graphique
     void closeUI();
+    
+    void afficherLettresProposees();
 }

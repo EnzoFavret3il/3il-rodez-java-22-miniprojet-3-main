@@ -1,7 +1,9 @@
 package Vue;
 
 import javax.swing.*;
+
 import modele.Dictionnaire;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,10 +37,9 @@ public class interfaceJeu implements affichage {
      * Constructeur de l'interface du jeu du pendu.
      *
      * @param difficulté La difficulté du jeu ("Facile" ou "Difficile").
-     * @param dictionnaire Le dictionnaire de mots à utiliser.
      */
-    public interfaceJeu(String difficulté, Dictionnaire dictionnaire) {
-        dico = dictionnaire;
+    public interfaceJeu(String difficulté) {
+        dico = new Dictionnaire("mots.txt");
         modeDifficile = difficulté.equalsIgnoreCase("Difficile");
 
         initUI();
@@ -129,8 +130,14 @@ public class interfaceJeu implements affichage {
                 }
             }
         });
+        interfacePrincipal.add(new JButton(new AbstractAction("Afficher lettres proposées") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                afficherLettresProposees();
+            }
+        }));
 
-        // Initialisation du timer en mode difficile
+     // Initialisation du timer en mode difficile
         if (modeDifficile) {
             timer = new Timer(1000, new ActionListener() {
                 int remainingTime = 20;
@@ -145,6 +152,7 @@ public class interfaceJeu implements affichage {
                             if (vie > 0) {
                                 remainingTime = 20; // Redémarrage du timer si des vies restent
                             }
+                            
                         }
                     }
                     timerLabel.setText("Temps restant: " + remainingTime + "s");
@@ -188,7 +196,7 @@ public class interfaceJeu implements affichage {
     }
 
     private void devinerLettre() {
-        String lettreText = caractereField.getText().toLowerCase();
+        String lettreText = caractereField.getText().toLowerCase(); 
         if (lettreText.length() != 1 || !lettreText.matches("[a-zàéçè-]")) {
             JOptionPane.showMessageDialog(theCadre, "Veuillez saisir une lettre de l'alphabet ou un des caractères spéciaux autorisés (à, é, ç, è, -).");
             return;
@@ -200,7 +208,6 @@ public class interfaceJeu implements affichage {
             JOptionPane.showMessageDialog(theCadre, "Vous avez déjà deviné cette lettre!");
             return;
         }
-
         lettresUtilisees.add(lettre);
         if (motCache.indexOf(lettre) != -1) {
             mettreAJourMotAffiche();
@@ -241,11 +248,12 @@ public class interfaceJeu implements affichage {
         int randomIndex = random.nextInt(allWords.length);
         return allWords[randomIndex];
     }
-
-    /**
-     * Méthode principale pour lancer le jeu du pendu.
-     *
-     * @param args Les arguments de ligne de commande (non utilisés).
-     */
+    public void afficherLettresProposees() {
+        StringBuilder lettresProposees = new StringBuilder();
+        for (char lettre : lettresUtilisees) {
+            lettresProposees.append(lettre).append(" ");
+        }
+        JOptionPane.showMessageDialog(theCadre, "Lettres déjà proposées : " + lettresProposees.toString());
+    }
 
 }

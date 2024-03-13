@@ -81,4 +81,10 @@ public class interfaceBegin implements affichage {
     public void closeUI() {
         inter.dispose();
     }
+
+	@Override
+	public void afficherLettresProposees() {
+		// TODO Auto-generated method stub
+		
+	}
 }
