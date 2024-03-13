@@ -13,6 +13,20 @@ Enfin la classe newGame est l'interface graphique qui s'affiche lorsqu'un utilis
 
 Ces 3 classes implémentes l'interface affichage qui définit des méthodes de bases qui semblent convenir pour des classes graphiques.
 
+## Les données
+
+L'application fonctionne via des données externes qui sont le fichier le mots.txt et des sons. Ces données se trouve respectivement à la racine du projet et dans un package Sounds pour structurer un peu le projet.
+
+Ces données sont utilisés par les classes Dictionnaires et Sound.
+
+La classe Dictionnaire est essentielle au fonctionnement du projet. Cette classe permet de traiter le fichier mots.txt et d'y extraire les mots et les définitions utilisés dans le jeu du pendu. 
+La classe Sound est une classe utilisé en Bonus. Celle-ci permet de jouer des sons lorsque l'utilisateur fait une erreur ou réalise une bonne réponse via des fichiers en .wav .
+
+## Les Tests
+
+Deux classes Tests ont étaient réalisés pour tester les données.
+La classe DictionnaireTest qui test l'existance d'un mot dans le dictionnaire, si un mot à une définition...
+La classe SoundTest qui test les types de son (erreur, bonne réponse, inconnue) et si les son sont joués.
 
 
 
