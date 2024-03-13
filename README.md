@@ -1,7 +1,7 @@
 # PARTIE TECHNIQUE
 
 SPOILER ALERT: 
-Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC. Mais j'ai éssayé ...
+Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC.
 
 Au niveau des demandes de bases :
 - Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.
@@ -77,6 +77,12 @@ En fin de partie l'utilisateur est invité à relancer une partie ou de quitter 
 
 Ce projet était très intéréssant dans sa réalisation car il y a énormément de manière pour répondre aux problèmatiques et de s'amuser dans les bonus.
 
-Ce projet a aussi révélé mon manque de compréhension important des modèles MVC, ce qui est plutôt embettant dans un projet avec une IHM...
+Ce projet a aussi révélé mon manque de compréhension important des modèles MVC, ce qui est plutôt embettant dans un projet avec une IHM... J'ai eu sur ce sujet en grand problème au début du projet à visualiser comment faire les liens entres les différentes parties. J'ai donc décidé de mettre un peu de coté le MVC en essayant de garder une structure de code propre même si on peu mieux faire.
 
 Sur les structures et utilisations des classes de SWING, j'ai aprris a utiliser, de manière basique, les classes de bases de SWING afin de réaliser une interface simple. Il me manque toutes les notions de gestions et de placement des objets dans un frame SWING. 
+
+# CE QUI RESTE A FAIRE
+
+L'application est fonctionnelle mais elle ne respecte pas vraiment le MVC, il faudrait donc déstructures certaines classes afin de séparer correctement les parties du MVC. 
+
+Nettoyer le code est essentielle car cetaines classes ont trop de lignes de code avec un peu trop de dépendance à mon avis. Il faudrait essayer de décomposer plusieurs méthodes pour défaire ces dépendances.
