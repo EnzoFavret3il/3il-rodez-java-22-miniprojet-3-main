@@ -1,5 +1,7 @@
 # PARTIE TECHNIQUE
 
+Le projet compile !
+
 SPOILER ALERT: 
 Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC.
 
