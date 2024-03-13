@@ -56,6 +56,7 @@ public class interfaceBegin implements affichage {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         interfaceJeu interJeu= new interfaceJeu("Facile");
+                        closeUI();
                     }
                 });
                 
@@ -64,6 +65,7 @@ public class interfaceBegin implements affichage {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                     	interfaceJeu interJeu= new interfaceJeu("Difficile");
+                    	closeUI();
                     }
                 });
                 

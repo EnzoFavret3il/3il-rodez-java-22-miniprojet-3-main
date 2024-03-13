@@ -231,12 +231,16 @@ public class interfaceJeu implements affichage {
             if (vie <= 0) {
                 JOptionPane.showMessageDialog(theCadre, "Vous avez perdu! Le mot était : " + motCache);
                 partieTerminee = true;
+                this.closeUI();
+                newGame newGame = new newGame();
             }
         }
 
         if (motAffiche.indexOf("_") == -1) {
             JOptionPane.showMessageDialog(theCadre, "Félicitations! Vous avez deviné le mot : " + motCache);
             partieTerminee = true;
+            this.closeUI();
+            newGame newGame = new newGame();
         }
 
         caractereField.setText("");
