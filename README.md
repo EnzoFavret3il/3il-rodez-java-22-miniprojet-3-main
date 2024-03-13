@@ -1,17 +1,10 @@
+# FONCTIONNEMENT APPLICATION
 
-RAF:
+Pour lancer l'application, il faut lancer la classe `Main.java` dans le package `Boot`.
 
-Possibilité de rejouer une partie après la fin d'une partie.
+Le jeu est composé de deux modes de jeu, Facile et Difficile:
 
+## Facile:
+Lorsque le jeu est lancé en mode facile, l'utilisateur a accès à un bouton permettant d'afficher la définition du mot à chercher.
 
-DONE:
-Lecture aléatoire d'un mot à deviner à partir d'un fichier texte donné à la racine du projet.
-Affichage graphique de l'interface du jeu à l'aide de Swing.
-Affichage graphique des lettres déjà proposées par le joueur.
-Affichage (ou non) de la définition (niveau de difficulté).
-Utilisation (ou non) d'un timer (niveau de difficulté).
-Gestion des entrées utilisateur pour proposer des lettres.
-Vérification de la validité des entrées utilisateur (lettre de l'alphabet uniquement).
-Gestion du décompte des tentatives restantes.
-Affichage graphique du pendu qui évolue en fonction des erreurs du joueur.
-Gestion de la victoire ou de la défaite du joueur.
+## Difficile:
