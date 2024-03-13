@@ -83,6 +83,6 @@ Sur les structures et utilisations des classes de SWING, j'ai aprris a utiliser,
 
 # CE QUI RESTE A FAIRE
 
-L'application est fonctionnelle mais elle ne respecte pas vraiment le MVC, il faudrait donc déstructurer certaines classes afin de séparer correctement les parties du MVC. 
+L'application est fonctionnelle mais elle ne respecte pas vraiment le MVC, il faudrait donc déstructurer certaines classes afin de séparer correctement les parties du MVC de ces classes.
 
 Nettoyer le code est essentielle car cetaines classes ont trop de lignes de code avec un peu trop de dépendance à mon avis. Il faudrait essayer de décomposer plusieurs méthodes pour défaire ces dépendances.
