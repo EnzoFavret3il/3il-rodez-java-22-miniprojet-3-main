@@ -43,4 +43,8 @@ Lorsque le jeu est lancé en mode facile, l'utilisateur a accès à un bouton pe
 
 Lorsque le jeu est lancé en mode difficile, l'utilisateur n'a plus de définition du mot et a un timer de 20 secondes pour répondre. Celui-ci ne repart pas à zéro lorsqu'une réponse est donnée pour ajouter plus de difficulté au jeu. Si le timer est atteint 0, une vie est retiré à l'utilisateur et repart à 20 secondes.
 
+# RETOUR SUR LE PROJET
 
+Ce projet était très intéréssant dans sa réalisation car il y a énormément de manière pour répondre aux problèmatiques et de s'amuser dans les bonus. 
+Ce projet a aussi révélé mon manque de compréhension important des modèles MVC, ce qui est plutôt embettant dans un projet avec une IHM...
+Sur les structures et utilisations des classes de SWING, j'ai aprris a utiliser, de manière basique, les classes de bases de SWING afin de réaliser une interface simple. Il me manque toutes les notions de gestions et de placement des objets dans un frame SWING. 
