@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class newGame extends JFrame implements affichage {
 
     /**
-	 * 
+	 * Interface permettant de demander une new partie
 	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
