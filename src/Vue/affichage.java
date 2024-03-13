@@ -1,4 +1,4 @@
-package Interface;
+package Vue;
 import javax.swing.*;
 
 public interface affichage {

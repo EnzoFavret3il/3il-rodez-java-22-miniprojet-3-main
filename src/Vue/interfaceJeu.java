@@ -1,8 +1,9 @@
-package Interface;
-
-import dico.Dictionnaire;
+package Vue;
 
 import javax.swing.*;
+
+import modele.Dictionnaire;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
