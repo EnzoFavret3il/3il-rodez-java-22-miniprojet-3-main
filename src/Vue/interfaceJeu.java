@@ -14,7 +14,7 @@ import java.util.Random;
  * Cette classe représente l'interface utilisateur pour le jeu du pendu.
  */
 public class interfaceJeu implements affichage {
-
+	private JTextArea penduLabel; 
     private int vie = 7;
     private String motCache;
     private StringBuilder motAffiche;
@@ -51,7 +51,7 @@ public class interfaceJeu implements affichage {
     public void initUI() {
         theCadre = new JFrame("Le pendu");
         theCadre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        theCadre.setSize(800, 400);
+        theCadre.setSize(800, 600);
         theCadre.setLocationRelativeTo(null);
 
         interfacePrincipal = new JPanel(new GridBagLayout());
@@ -95,6 +95,14 @@ public class interfaceJeu implements affichage {
         }
 
         theCadre.getContentPane().add(interfacePrincipal);
+        
+     // Ajout du JLabel pour afficher le pendu
+        gbc.gridy = 4;
+        penduLabel = new JTextArea(7, 11); // 7 lignes, 11 colonnes pour correspondre à la taille du pendu
+        penduLabel.setEditable(false); // Empêcher l'édition du pendu
+        penduLabel.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12)); // Utiliser une police monospace pour maintenir l'alignement
+        interfacePrincipal.add(new JScrollPane(penduLabel), gbc); // Utiliser un JScrollPane pour afficher le pendu si nécessaire
+
     }
 
     @Override
@@ -195,6 +203,7 @@ public class interfaceJeu implements affichage {
         mettreAJourMotAffiche();
     }
 
+ // Méthode pour la logique de deviner une lettre
     private void devinerLettre() {
         String lettreText = caractereField.getText().toLowerCase(); 
         if (lettreText.length() != 1 || !lettreText.matches("[a-zàéçè-]")) {
@@ -213,6 +222,7 @@ public class interfaceJeu implements affichage {
             mettreAJourMotAffiche();
         } else {
             vie--;
+            mettreAJourPendu(); // Mise à jour du pendu après une erreur
             if (vie <= 0) {
                 JOptionPane.showMessageDialog(theCadre, "Vous avez perdu! Le mot était : " + motCache);
                 partieTerminee = true;
@@ -255,5 +265,69 @@ public class interfaceJeu implements affichage {
         }
         JOptionPane.showMessageDialog(theCadre, "Lettres déjà proposées : " + lettresProposees.toString());
     }
+    private void mettreAJourPendu() {
+        // Définir l'image ou la représentation ASCII du pendu en fonction du nombre d'erreurs
+        String[] penduImages = {
+        		"   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "  /|\\  |\n" +
+        			    "  / \\  |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "  /|\\  |\n" +
+        			    "  /    |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "  /|\\  |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "  /|\\  |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "  /|\\  |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "   O   |\n" +
+        			    "   |   |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "=========",
+        			    
+        			    "   +---+\n" +
+        			    "   |   |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "       |\n" +
+        			    "========="
+        };
 
+        // Afficher la représentation correspondante en fonction du nombre d'erreurs
+        if (vie <= penduImages.length) {
+            penduLabel.setText(penduImages[vie]);
+        }
+    }
 }
