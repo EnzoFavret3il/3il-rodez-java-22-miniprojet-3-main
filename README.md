@@ -1,7 +1,7 @@
-#Partie Technique 
+# PARTIE TECHNIQUE
 
 SPOILER ALERT: 
-Le projet ne respecte pas totalement les séparations MVC à cause d'un manque d'expérience et d'un compréhension du modèle MVC. Mais j'ai éssayé ... 
+Le projet ne respecte pas totalement les séparations MVC à cause de mon manque d'expérience et de mon manque de compréhension du modèle MVC. Mais j'ai éssayé ... 
 
 ## Les Interfaces graphiques
 
@@ -16,7 +16,7 @@ Ces 3 classes implémentes l'interface affichage qui définit des méthodes de b
 
 
 
-# FONCTIONNEMENT APPLICATION
+# PARTIE FONCTIONNEMENT APPLICATION
 
 Pour lancer l'application, il faut lancer la classe `Main.java` dans le package `Boot`.
 
