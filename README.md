@@ -63,6 +63,8 @@ En fin de partie l'utilisateur est invité à relancer une partie ou de quitter 
 
 # RETOUR SUR LE PROJET
 
-Ce projet était très intéréssant dans sa réalisation car il y a énormément de manière pour répondre aux problèmatiques et de s'amuser dans les bonus. 
+Ce projet était très intéréssant dans sa réalisation car il y a énormément de manière pour répondre aux problèmatiques et de s'amuser dans les bonus.
+
 Ce projet a aussi révélé mon manque de compréhension important des modèles MVC, ce qui est plutôt embettant dans un projet avec une IHM...
+
 Sur les structures et utilisations des classes de SWING, j'ai aprris a utiliser, de manière basique, les classes de bases de SWING afin de réaliser une interface simple. Il me manque toutes les notions de gestions et de placement des objets dans un frame SWING. 
