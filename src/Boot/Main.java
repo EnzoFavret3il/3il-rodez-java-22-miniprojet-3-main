@@ -1,8 +1,8 @@
-package Controleur;
+package Boot;
 
-import Vue.interfaceBegin;
+import Interfaces.interfaceBegin;
 
-public class PenduControleur {
+public class Main {
 
 	public static void main(String[] args) {
 		interfaceBegin inter= new interfaceBegin();

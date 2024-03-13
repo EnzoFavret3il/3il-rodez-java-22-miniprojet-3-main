@@ -1,9 +1,9 @@
-package Vue;
+package Interfaces;
 
 import javax.swing.*;
 
-import modele.Dictionnaire;
-import modele.Sound;
+import Donnees.Dictionnaire;
+import Donnees.Sound;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
